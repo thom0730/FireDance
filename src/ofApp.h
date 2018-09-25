@@ -6,6 +6,7 @@
 #include "ofxCv.h"
 #include "ofxOpenCv.h"
 #include "ofxSyphon.h"
+#include "ofxFlowTools.h"
 
 
 #define STRINGIFY(x) #x
@@ -20,6 +21,7 @@ STRINGIFY(
               gl_FragColor = vec4(vec3(value), 1.0);
           }
 );
+using namespace flowTools;
 
 class ofApp : public ofBaseApp{
 
@@ -43,22 +45,24 @@ class ofApp : public ofBaseApp{
     
     
     ofxMultiKinectV2 kinect;
-    ofEasyCam cam;
-    ofVboMesh mesh;
     
     ofTexture irTexture;
+    ofShader irShader;
     ofxCvGrayscaleImage irImage;
     ofxCvColorImage myCvImage;
     ofFbo frameBuffer;
     ofPixels irPixels;
+    ofxCv::ContourFinder contourFinder; //CV輪郭抽出
     int width;
     int height;
     
-    ofImage kinectImage;
-    ofImage depthImage;
-    ofImage threshImage; 
-    ofxCv::ContourFinder contourFinder; //CV輪郭抽出
-    //int threshold;
+    //FOR FIRE
+    ftFluidSimulation fluidSimulation;
+    ftDrawMouseForces mouseForces;
+    float deltaTime;
+    float lastTime;
+
+    
     
     //FOR GUI
     ofxPanel gui;
@@ -68,20 +72,11 @@ class ofApp : public ofBaseApp{
     ofParameter<int> g;
     ofParameter<int> b;
     ofColor targetColor;
-    ofxFloatSlider minDistance;
-    ofxFloatSlider maxDistance;
 
-    ofxFloatSlider thresh;
-    ofxFloatSlider minRadius;
-    ofxFloatSlider maxRadius;
     
-    ofTexture texture;
-    ofShader depthShader;
-    ofShader irShader;
-    
+    //FOR SYPHON
     ofxSyphonServer mainOutputSyphonServer;
     ofxSyphonServer individualTextureSyphonServer;
     ofxSyphonClient mClient;
-    
-    ofImage img;
+
 };

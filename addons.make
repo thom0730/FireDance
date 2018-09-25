@@ -1,7 +1,6 @@
 ofxCv
+ofxFlowTools
 ofxGui
-ofxMSACore
-ofxMSAFluid
 ofxMultiKinectV2
 ofxOpenCv
 ofxSyphon

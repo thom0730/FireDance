@@ -43,29 +43,24 @@ void ofApp::setup(){
     frameBuffer.allocate(ofGetWidth(), ofGetHeight(), GL_RGB);
     irPixels.allocate(ofGetWidth(), ofGetHeight(),OF_PIXELS_RGB);
     
+    //FOR FIRE
+    fluidSimulation.setup(ofGetWidth()/4, ofGetHeight()/4);
+    fluidSimulation.setDissipation(0.0);
+    mouseForces.setup(ofGetWidth()/4, ofGetHeight()/4,ofGetWidth(),ofGetHeight());
+    lastTime = ofGetElapsedTimef();
+    
     
 }
 
 //--------------------------------------------------------------
 void ofApp::update(){
     
+    
     kinect.update();
     if (kinect.isFrameNew()) {
         irTexture.loadData(kinect.getIrPixelsRef());
 //        float *data = kinect.getIrPixelsRef().getData();
-        
-        
-        
-        
 
-    
-
-        
-
-
-        
-
-        
 //        contourFinder.setTargetColor(targetColor, trackHs ? TRACK_COLOR_HS : TRACK_COLOR_RGB);
 //        cv::Mat imgMat = ofxCv::toCv(kinect.getIrPixelsRef());
 //        contourFinder.findContours(imgMat); //ビデオカメラから輪郭を検出
@@ -80,6 +75,19 @@ void ofApp::update(){
         //        grayImage.flagImageChanged();
         
     }
+    
+    //FOR FIRE
+    deltaTime = ofGetElapsedTimef()-lastTime;
+    lastTime = ofGetElapsedTimef();
+    mouseForces.update(deltaTime);
+    
+    for (int i = 0; i<mouseForces.getNumForces(); i++) {
+        if(mouseForces.didChange(i)){
+            fluidSimulation.addDensity(mouseForces.getTextureReference(i),mouseForces.getStrength(i));
+            fluidSimulation.addVelocity(mouseForces.getTextureReference(i),mouseForces.getStrength(i));
+        }
+    }
+    fluidSimulation.update();
 }
 
 //--------------------------------------------------------------
@@ -99,6 +107,7 @@ void ofApp::draw(){
         frameBuffer.end();
         frameBuffer.readToPixels(irPixels);
         myCvImage.setFromPixels(irPixels);
+        //IRカメラの描画
         myCvImage.draw(0.0, 0.0, ofGetWidth(), ofGetHeight());
         
         //openCV
@@ -109,9 +118,10 @@ void ofApp::draw(){
         
         for(int i = 0; i < contourFinder.size() ; i++){
             ofDrawCircle(ofxCv::toOf(contourFinder.getCenter(i)),50);
+            cout << contourFinder.getCenter(i)<<endl;
             
         }
-        contourFinder.draw();
+      //  contourFinder.draw();
         
 //        ofPixels pixels;
 //        irTexture.readToPixels(pixels);
@@ -153,6 +163,8 @@ void ofApp::draw(){
     ofDrawBitmapStringHighlight("fps: " + ofToString(ofGetFrameRate()), ofGetWidth() - 120, 20);
     mainOutputSyphonServer.publishScreen();
     gui.draw();
+    
+     fluidSimulation.draw(0,0,1280,720);
     
 }
 
