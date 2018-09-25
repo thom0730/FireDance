@@ -3,27 +3,12 @@
 #include "ofMain.h"
 #include "ofxGui.h"
 #include "ofxMultiKinectV2.h"
+#include "ofxCv.h"
+#include "ofxOpenCv.h"
+#include "ofxSyphon.h"
+
 
 #define STRINGIFY(x) #x
-
-static string depthFragmentShader =
-STRINGIFY(
-          uniform sampler2DRect tex;
-          void main()
-          {
-              vec4 col = texture2DRect(tex, gl_TexCoord[0].xy);
-              float value = col.r;
-              float low1 = 500.0; //500.0
-              float high1 = 1000.0; //5000.0
-              float low2 = 1.0; //1.0
-              float high2 = 0.0; //0.0
-              float d = clamp(low2 + (value - low1) * (high2 - low2) / (high1 - low1), 0.0, 1.0);
-              if (d == 1.0) {
-                  d = 0.0;
-              }
-              gl_FragColor = vec4(vec3(d), 1.0); //塗りつぶしの色　vec3がRGB
-          }
-          );
 
 static string irFragmentShader =
 STRINGIFY(
@@ -55,15 +40,48 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
     
+    
+    
     ofxMultiKinectV2 kinect;
     ofEasyCam cam;
     ofVboMesh mesh;
     
+    ofTexture irTexture;
+    ofxCvGrayscaleImage irImage;
+    ofxCvColorImage myCvImage;
+    ofFbo frameBuffer;
+    ofPixels irPixels;
+    int width;
+    int height;
+    
+    ofImage kinectImage;
+    ofImage depthImage;
+    ofImage threshImage; 
+    ofxCv::ContourFinder contourFinder; //CV輪郭抽出
+    //int threshold;
+    
+    //FOR GUI
     ofxPanel gui;
+    ofParameter<float> threshold;
+    ofParameter<bool> trackHs;
+    ofParameter<int> r;
+    ofParameter<int> g;
+    ofParameter<int> b;
+    ofColor targetColor;
     ofxFloatSlider minDistance;
     ofxFloatSlider maxDistance;
+
+    ofxFloatSlider thresh;
+    ofxFloatSlider minRadius;
+    ofxFloatSlider maxRadius;
     
     ofTexture texture;
     ofShader depthShader;
     ofShader irShader;
+    
+    ofxSyphonServer mainOutputSyphonServer;
+    ofxSyphonServer individualTextureSyphonServer;
+    ofxSyphonClient mClient;
+    
+    ofImage img;
 };

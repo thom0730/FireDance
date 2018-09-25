@@ -1,3 +1,8 @@
+ofxCv
 ofxGui
+ofxMSACore
+ofxMSAFluid
 ofxMultiKinectV2
+ofxOpenCv
+ofxSyphon
 ofxTurboJpeg
