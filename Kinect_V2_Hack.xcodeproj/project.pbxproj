@@ -363,6 +363,70 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
+			<key>67DBED026597C0EE427F0379</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxPostGlitch.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxPostGlitch/src/ofxPostGlitch.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>A15491832FCD72B40A572147</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>40C409F696FE990F95E1B9D3</string>
+					<string>67DBED026597C0EE427F0379</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>src</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>D92A719EC4DFB00CB4A3047D</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>A15491832FCD72B40A572147</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>ofxPostGlitch</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>F6E7D6C01B3F2E112EB0533D</key>
+			<dict>
+				<key>fileRef</key>
+				<string>40C409F696FE990F95E1B9D3</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>40C409F696FE990F95E1B9D3</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.cpp</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxPostGlitch.cpp</string>
+				<key>path</key>
+				<string>../../../addons/ofxPostGlitch/src/ofxPostGlitch.cpp</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
 			<key>9A807ED85FFB53D3638FCBE0</key>
 			<dict>
 				<key>explicitFileType</key>
@@ -4746,6 +4810,70 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
+			<key>E025DA9850E317B28A4DBE63</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxFluid.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFluid/src/ofxFluid.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>331B2291D2642CA1A93D922A</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>4A668B455165E1F25B6E3238</string>
+					<string>E025DA9850E317B28A4DBE63</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>src</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>AC589A74CE1B327ED3EED72A</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>331B2291D2642CA1A93D922A</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>ofxFluid</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>246908CC3F784104A474DBA6</key>
+			<dict>
+				<key>fileRef</key>
+				<string>4A668B455165E1F25B6E3238</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>4A668B455165E1F25B6E3238</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.cpp</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxFluid.cpp</string>
+				<key>path</key>
+				<string>../../../addons/ofxFluid/src/ofxFluid.cpp</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
 			<key>8FDFCC972FD8649F027E03F1</key>
 			<dict>
 				<key>explicitFileType</key>
@@ -6048,6 +6176,666 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
+			<key>C31FEF62BD7316AF85A831B5</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxThreshold.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/operations/ofxThreshold.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>0EB7FA30228FFC0E433EE3A8</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxSubstract.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/operations/ofxSubstract.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>782D44F4D5E4C1FD710C3716</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxRipples.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/operations/ofxRipples.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>3A731B10E475E26DE2463937</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxNormals.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/operations/ofxNormals.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>4976D4D0EB5D35AAE81DE51A</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxFlow.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/operations/ofxFlow.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>D4D6DB046477A279EF364999</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxEdgeDetect.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/operations/ofxEdgeDetect.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>7CCFC9B8ABF5BD21424EBF38</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxDisplacePixels.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/operations/ofxDisplacePixels.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>870CDA9CB60D0BD24017A807</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxBounce.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/operations/ofxBounce.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>44AC956B7DDEB3EA3AA33B00</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>F5E48C748F236B06C3FD6352</string>
+					<string>870CDA9CB60D0BD24017A807</string>
+					<string>7CCFC9B8ABF5BD21424EBF38</string>
+					<string>D4D6DB046477A279EF364999</string>
+					<string>4976D4D0EB5D35AAE81DE51A</string>
+					<string>3A731B10E475E26DE2463937</string>
+					<string>782D44F4D5E4C1FD710C3716</string>
+					<string>0EB7FA30228FFC0E433EE3A8</string>
+					<string>C31FEF62BD7316AF85A831B5</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>operations</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>F5E48C748F236B06C3FD6352</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxAbsDiff.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/operations/ofxAbsDiff.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>7AE447E0A447B18D671811A6</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxSwapBuffer.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/ofxSwapBuffer.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>0AB01C0F3826CAA2AE964347</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxFXObject.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/ofxFXObject.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>5355E99D8BBC71222AA2B9FD</key>
+			<dict>
+				<key>fileRef</key>
+				<string>4CF06DA01D9A4561A5001B28</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>4CF06DA01D9A4561A5001B28</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.cpp</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxFXObject.cpp</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/ofxFXObject.cpp</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>0360379409DFE7926EFACB24</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxFX.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/ofxFX.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>ACE80EF2FE2F3D0A2ED1A824</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxTint.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/generative/ofxTint.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>8C4EF175FF0B7ED0CE6F5FE3</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxNoise.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/generative/ofxNoise.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>62BDB9F397D0AB08DD41E769</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxGrayScott.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/generative/ofxGrayScott.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>8EB521E333C7B0CE4CF802B3</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxFire.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/generative/ofxFire.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>C959CBA3130BE8E72D38F769</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>F56A0242CA8F5409C606405E</string>
+					<string>8EB521E333C7B0CE4CF802B3</string>
+					<string>62BDB9F397D0AB08DD41E769</string>
+					<string>8C4EF175FF0B7ED0CE6F5FE3</string>
+					<string>ACE80EF2FE2F3D0A2ED1A824</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>generative</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>F56A0242CA8F5409C606405E</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxFBM.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/generative/ofxFBM.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>5E5EAD88DF0323D1C6109408</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxOldTv.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/filters/ofxOldTv.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>6C3BF497C4422FA343F951A2</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxMedian.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/filters/ofxMedian.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>D432A39EA2A57D3781E8EB06</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxLUT.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/filters/ofxLUT.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>1A2ED38D79EB9CC8B3E113E4</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxInverse.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/filters/ofxInverse.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>58CDE3BE1C014BD0DC3CB32E</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxGrayscale.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/filters/ofxGrayscale.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>987AD08F097CB59F432D3C8A</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxGlow.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/filters/ofxGlow.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>BE08CC95E6A90C053087AF55</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxGaussianBlur.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/filters/ofxGaussianBlur.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>200F5DF5E39CFECD07DAD5C7</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxContrast.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/filters/ofxContrast.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>478BFF07E8302C4318515A52</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxChromaGlitch.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/filters/ofxChromaGlitch.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>92696C363FF18AA6DFAAD969</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxChromaAb.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/filters/ofxChromaAb.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>7F409E745A4DFE45EC22A9CF</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxBokeh.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/filters/ofxBokeh.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>22D82B140684245A264395B8</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxBlur.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/filters/ofxBlur.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>B2311A009B3E782884BBD59F</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxBloom.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/filters/ofxBloom.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>389FE9FFF8F20EA90A671145</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>264BD182AA1893377670C038</string>
+					<string>B2311A009B3E782884BBD59F</string>
+					<string>22D82B140684245A264395B8</string>
+					<string>7F409E745A4DFE45EC22A9CF</string>
+					<string>92696C363FF18AA6DFAAD969</string>
+					<string>478BFF07E8302C4318515A52</string>
+					<string>200F5DF5E39CFECD07DAD5C7</string>
+					<string>BE08CC95E6A90C053087AF55</string>
+					<string>987AD08F097CB59F432D3C8A</string>
+					<string>58CDE3BE1C014BD0DC3CB32E</string>
+					<string>1A2ED38D79EB9CC8B3E113E4</string>
+					<string>D432A39EA2A57D3781E8EB06</string>
+					<string>6C3BF497C4422FA343F951A2</string>
+					<string>5E5EAD88DF0323D1C6109408</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>filters</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>264BD182AA1893377670C038</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxBarrelChromaAb.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/filters/ofxBarrelChromaAb.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>FE684EA3567FD4DFEBA0A919</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxMultiTexture.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/composers/ofxMultiTexture.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>63CD29B9755446A11D1068B5</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxMask.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/composers/ofxMask.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>7A6AFA6914A5B7479FB247B6</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxClone.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/composers/ofxClone.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>E7FE87AA9AE5CA7BE8DFA759</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>4945618E448568E991F2EC95</string>
+					<string>7A6AFA6914A5B7479FB247B6</string>
+					<string>63CD29B9755446A11D1068B5</string>
+					<string>FE684EA3567FD4DFEBA0A919</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>composers</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>37EEAF5BE699F2C7DD676270</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>E7FE87AA9AE5CA7BE8DFA759</string>
+					<string>389FE9FFF8F20EA90A671145</string>
+					<string>C959CBA3130BE8E72D38F769</string>
+					<string>0360379409DFE7926EFACB24</string>
+					<string>4CF06DA01D9A4561A5001B28</string>
+					<string>0AB01C0F3826CAA2AE964347</string>
+					<string>7AE447E0A447B18D671811A6</string>
+					<string>44AC956B7DDEB3EA3AA33B00</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>src</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>CABF1A23B637491112B10A00</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>37EEAF5BE699F2C7DD676270</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>ofxFX</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>4945618E448568E991F2EC95</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxBlend.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxFX/src/composers/ofxBlend.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
 			<key>DBCB84A37F9AECC254870D79</key>
 			<dict>
 				<key>fileRef</key>
@@ -6761,10 +7549,13 @@
 				<key>children</key>
 				<array>
 					<string>6025FAF6414C2CA589764D26</string>
+					<string>CABF1A23B637491112B10A00</string>
 					<string>191D5B5C65CA5D1BE82F2030</string>
+					<string>AC589A74CE1B327ED3EED72A</string>
 					<string>480A780D8D0308AE4A368801</string>
 					<string>95DA0149F6FE8A2707A30A41</string>
 					<string>A0B90D3B0ADB9C1716816714</string>
+					<string>D92A719EC4DFB00CB4A3047D</string>
 					<string>7F3C04577424427D348B1425</string>
 					<string>334E8B760835B4E270BF0E5C</string>
 				</array>
@@ -6932,6 +7723,11 @@
 						<string>../../../addons/ofxCv/libs/ofxCv/include</string>
 						<string>../../../addons/ofxCv/libs/CLD/include/CLD</string>
 						<string>../../../addons/ofxCv/src</string>
+						<string>../../../addons/ofxFX/src</string>
+						<string>../../../addons/ofxFX/src/composers</string>
+						<string>../../../addons/ofxFX/src/filters</string>
+						<string>../../../addons/ofxFX/src/generative</string>
+						<string>../../../addons/ofxFX/src/operations</string>
 						<string>../../../addons/ofxFlowTools/src</string>
 						<string>../../../addons/ofxFlowTools/src/drawforces</string>
 						<string>../../../addons/ofxFlowTools/src/filters</string>
@@ -6942,6 +7738,7 @@
 						<string>../../../addons/ofxFlowTools/src/splitvelocity</string>
 						<string>../../../addons/ofxFlowTools/src/tools</string>
 						<string>../../../addons/ofxFlowTools/src/visualisation</string>
+						<string>../../../addons/ofxFluid/src</string>
 						<string>../../../addons/ofxGui/src</string>
 						<string>../../../addons/ofxMultiKinectV2/libs</string>
 						<string>../../../addons/ofxMultiKinectV2/libs/libfreenect2</string>
@@ -6990,6 +7787,7 @@
 						<string>../../../addons/ofxOpenCv/libs/opencv/lib/osx</string>
 						<string>../../../addons/ofxOpenCv/libs/opencv/license</string>
 						<string>../../../addons/ofxOpenCv/src</string>
+						<string>../../../addons/ofxPostGlitch/src</string>
 						<string>../../../addons/ofxSyphon/libs</string>
 						<string>../../../addons/ofxSyphon/libs/Syphon</string>
 						<string>../../../addons/ofxSyphon/libs/Syphon/lib</string>
@@ -7067,6 +7865,11 @@
 						<string>../../../addons/ofxCv/libs/ofxCv/include</string>
 						<string>../../../addons/ofxCv/libs/CLD/include/CLD</string>
 						<string>../../../addons/ofxCv/src</string>
+						<string>../../../addons/ofxFX/src</string>
+						<string>../../../addons/ofxFX/src/composers</string>
+						<string>../../../addons/ofxFX/src/filters</string>
+						<string>../../../addons/ofxFX/src/generative</string>
+						<string>../../../addons/ofxFX/src/operations</string>
 						<string>../../../addons/ofxFlowTools/src</string>
 						<string>../../../addons/ofxFlowTools/src/drawforces</string>
 						<string>../../../addons/ofxFlowTools/src/filters</string>
@@ -7077,6 +7880,7 @@
 						<string>../../../addons/ofxFlowTools/src/splitvelocity</string>
 						<string>../../../addons/ofxFlowTools/src/tools</string>
 						<string>../../../addons/ofxFlowTools/src/visualisation</string>
+						<string>../../../addons/ofxFluid/src</string>
 						<string>../../../addons/ofxGui/src</string>
 						<string>../../../addons/ofxMultiKinectV2/libs</string>
 						<string>../../../addons/ofxMultiKinectV2/libs/libfreenect2</string>
@@ -7125,6 +7929,7 @@
 						<string>../../../addons/ofxOpenCv/libs/opencv/lib/osx</string>
 						<string>../../../addons/ofxOpenCv/libs/opencv/license</string>
 						<string>../../../addons/ofxOpenCv/src</string>
+						<string>../../../addons/ofxPostGlitch/src</string>
 						<string>../../../addons/ofxSyphon/libs</string>
 						<string>../../../addons/ofxSyphon/libs/Syphon</string>
 						<string>../../../addons/ofxSyphon/libs/Syphon/lib</string>
@@ -7202,6 +8007,7 @@
 					<string>10B69DE456AED1288FC9316B</string>
 					<string>A6668C5B1272D7FCD5B5A16F</string>
 					<string>DBCB84A37F9AECC254870D79</string>
+					<string>5355E99D8BBC71222AA2B9FD</string>
 					<string>4166D6A6757F613CED499577</string>
 					<string>F75A96FFB5CA3A70D0903987</string>
 					<string>AFBC335CC80DC27DCC9E70D7</string>
@@ -7210,6 +8016,7 @@
 					<string>77FBBEE103C3E71E8C9510E0</string>
 					<string>EA4D64CEEDE66ADC4ECB126B</string>
 					<string>8EA04B616D228D22AEC6C9C8</string>
+					<string>246908CC3F784104A474DBA6</string>
 					<string>856AA354D08AB4B323081444</string>
 					<string>5CBB2AB3A60F65431D7B555D</string>
 					<string>B266578FC55D23BFEBC042E7</string>
@@ -7228,6 +8035,7 @@
 					<string>E212C821D1064B92DD953A42</string>
 					<string>63020F16C7E8DED980111241</string>
 					<string>D3301F6A0B43BB293ED97C1D</string>
+					<string>F6E7D6C01B3F2E112EB0533D</string>
 					<string>1F558B76FB3412843DDAA031</string>
 					<string>8D60C222CBD3F869382832E9</string>
 					<string>11DF9AB1B4EAA63E3B190CA0</string>
@@ -7330,6 +8138,11 @@
 						<string>../../../addons/ofxCv/libs/ofxCv/include</string>
 						<string>../../../addons/ofxCv/libs/CLD/include/CLD</string>
 						<string>../../../addons/ofxCv/src</string>
+						<string>../../../addons/ofxFX/src</string>
+						<string>../../../addons/ofxFX/src/composers</string>
+						<string>../../../addons/ofxFX/src/filters</string>
+						<string>../../../addons/ofxFX/src/generative</string>
+						<string>../../../addons/ofxFX/src/operations</string>
 						<string>../../../addons/ofxFlowTools/src</string>
 						<string>../../../addons/ofxFlowTools/src/drawforces</string>
 						<string>../../../addons/ofxFlowTools/src/filters</string>
@@ -7340,6 +8153,7 @@
 						<string>../../../addons/ofxFlowTools/src/splitvelocity</string>
 						<string>../../../addons/ofxFlowTools/src/tools</string>
 						<string>../../../addons/ofxFlowTools/src/visualisation</string>
+						<string>../../../addons/ofxFluid/src</string>
 						<string>../../../addons/ofxGui/src</string>
 						<string>../../../addons/ofxMultiKinectV2/libs</string>
 						<string>../../../addons/ofxMultiKinectV2/libs/libfreenect2</string>
@@ -7388,6 +8202,7 @@
 						<string>../../../addons/ofxOpenCv/libs/opencv/lib/osx</string>
 						<string>../../../addons/ofxOpenCv/libs/opencv/license</string>
 						<string>../../../addons/ofxOpenCv/src</string>
+						<string>../../../addons/ofxPostGlitch/src</string>
 						<string>../../../addons/ofxSyphon/libs</string>
 						<string>../../../addons/ofxSyphon/libs/Syphon</string>
 						<string>../../../addons/ofxSyphon/libs/Syphon/lib</string>
@@ -7457,6 +8272,11 @@
 						<string>../../../addons/ofxCv/libs/ofxCv/include</string>
 						<string>../../../addons/ofxCv/libs/CLD/include/CLD</string>
 						<string>../../../addons/ofxCv/src</string>
+						<string>../../../addons/ofxFX/src</string>
+						<string>../../../addons/ofxFX/src/composers</string>
+						<string>../../../addons/ofxFX/src/filters</string>
+						<string>../../../addons/ofxFX/src/generative</string>
+						<string>../../../addons/ofxFX/src/operations</string>
 						<string>../../../addons/ofxFlowTools/src</string>
 						<string>../../../addons/ofxFlowTools/src/drawforces</string>
 						<string>../../../addons/ofxFlowTools/src/filters</string>
@@ -7467,6 +8287,7 @@
 						<string>../../../addons/ofxFlowTools/src/splitvelocity</string>
 						<string>../../../addons/ofxFlowTools/src/tools</string>
 						<string>../../../addons/ofxFlowTools/src/visualisation</string>
+						<string>../../../addons/ofxFluid/src</string>
 						<string>../../../addons/ofxGui/src</string>
 						<string>../../../addons/ofxMultiKinectV2/libs</string>
 						<string>../../../addons/ofxMultiKinectV2/libs/libfreenect2</string>
@@ -7515,6 +8336,7 @@
 						<string>../../../addons/ofxOpenCv/libs/opencv/lib/osx</string>
 						<string>../../../addons/ofxOpenCv/libs/opencv/license</string>
 						<string>../../../addons/ofxOpenCv/src</string>
+						<string>../../../addons/ofxPostGlitch/src</string>
 						<string>../../../addons/ofxSyphon/libs</string>
 						<string>../../../addons/ofxSyphon/libs/Syphon</string>
 						<string>../../../addons/ofxSyphon/libs/Syphon/lib</string>

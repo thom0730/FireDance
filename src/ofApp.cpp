@@ -9,6 +9,9 @@ void ofApp::setup(){
     ofSetFrameRate(60);
     ofEnableSmoothing();
     
+    ofEnableAlphaBlending();
+    ofSetCircleResolution(100);
+    
     //FOR KINECT INIT
     kinect.open(true, true, 0);
     kinect.start();
@@ -30,26 +33,38 @@ void ofApp::setup(){
     
     //FOR GUI
     gui.setup();
-    gui.add(threshold.set("Threshold", 128, 0, 255));
+    gui.add(threshold.set("Threshold", 40, 0, 255));
     gui.add(trackHs.set("Track Hue/Saturation", false));
     gui.add(r.set("r",255, 0, 255));
     gui.add(g.set("g",255, 0, 255));
     gui.add(b.set("b",255, 0, 255));
     
-    width = 2000;
-    height = 2000;
+    width = ofGetWidth();
+    height = ofGetHeight();
     
     myCvImage.allocate(ofGetWidth(), ofGetHeight());
     frameBuffer.allocate(ofGetWidth(), ofGetHeight(), GL_RGB);
     irPixels.allocate(ofGetWidth(), ofGetHeight(),OF_PIXELS_RGB);
     
     //FOR FIRE
-    fluidSimulation.setup(ofGetWidth()/4, ofGetHeight()/4);
-    fluidSimulation.setDissipation(0.0);
-    mouseForces.setup(ofGetWidth()/4, ofGetHeight()/4,ofGetWidth(),ofGetHeight());
-    lastTime = ofGetElapsedTimef();
+
+    fluid.allocate(width, height, 0.2);
+
+    fluid.dissipation = 0.99;
+    fluid.velocityDissipation = 0.99;
+        
+    fluid.setGravity(ofVec2f(0.0,0.0));
+    fluid.begin();
+    ofSetColor(0,0);
+    ofSetColor(255);
+   // ofCircle(width*0.5, height*0.35, 40);
+    fluid.end();
+    fluid.setUseObstacles(false);
     
-    
+    //FOR POSTGLITCH
+    GlitchFBO.allocate(ofGetWidth(), ofGetHeight());
+    postGlitch.setup(&GlitchFBO);
+
 }
 
 //--------------------------------------------------------------
@@ -59,46 +74,18 @@ void ofApp::update(){
     kinect.update();
     if (kinect.isFrameNew()) {
         irTexture.loadData(kinect.getIrPixelsRef());
-//        float *data = kinect.getIrPixelsRef().getData();
-
-//        contourFinder.setTargetColor(targetColor, trackHs ? TRACK_COLOR_HS : TRACK_COLOR_RGB);
-//        cv::Mat imgMat = ofxCv::toCv(kinect.getIrPixelsRef());
-//        contourFinder.findContours(imgMat); //ビデオカメラから輪郭を検出
-        
-        
-        //        ofxCvGrayscaleImage  grayImage;
-        //
-        //        grayImage.allocate(kinect.getIrPixelsRef().getWidth(),kinect.getIrPixelsRef().getHeight());
-        //
-        //        img.setFromPixels(kinect.getIrPixelsRef());
-        //        ofxCv::convertColor(img.getPixelsRef(), grayImage.getPixels() , CV_RGBA2GRAY);
-        //        grayImage.flagImageChanged();
-        
     }
     
     //FOR FIRE
-    deltaTime = ofGetElapsedTimef()-lastTime;
-    lastTime = ofGetElapsedTimef();
-    mouseForces.update(deltaTime);
-    
-    for (int i = 0; i<mouseForces.getNumForces(); i++) {
-        if(mouseForces.didChange(i)){
-            fluidSimulation.addDensity(mouseForces.getTextureReference(i),mouseForces.getStrength(i));
-            fluidSimulation.addVelocity(mouseForces.getTextureReference(i),mouseForces.getStrength(i));
-        }
-    }
-    fluidSimulation.update();
+    fluid.update();
+
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    
-    
-    
+
     ofClear(0);
-    
-    
-    
+
     if(irTexture.isAllocated()){
         frameBuffer.begin();
         irShader.begin();
@@ -108,7 +95,7 @@ void ofApp::draw(){
         frameBuffer.readToPixels(irPixels);
         myCvImage.setFromPixels(irPixels);
         //IRカメラの描画
-        myCvImage.draw(0.0, 0.0, ofGetWidth(), ofGetHeight());
+        //myCvImage.draw(0.0, 0.0, ofGetWidth(), ofGetHeight());
         
         //openCV
         contourFinder.setTargetColor(targetColor, trackHs ? TRACK_COLOR_HS : TRACK_COLOR_RGB);
@@ -117,59 +104,43 @@ void ofApp::draw(){
         contourFinder.findContours(imgMat); //ビデオカメラから輪郭を検出
         
         for(int i = 0; i < contourFinder.size() ; i++){
-            ofDrawCircle(ofxCv::toOf(contourFinder.getCenter(i)),50);
-            cout << contourFinder.getCenter(i)<<endl;
+            //デバッグ用の円
+            //ofDrawCircle(ofxCv::toOf(contourFinder.getCenter(i)),50);
+            //cout << contourFinder.getCenter(i)<<endl;
+            int x = contourFinder.getCenter(i).x;
+            int y = contourFinder.getCenter(i).y;
+            //FOR FIRE
+            ofPoint m = ofPoint(x,y);
+            ofPoint d = (m - oldM)*10.0;
+            oldM = m;
+            ofPoint c = ofPoint(640*0.5, 480*0.5) - m;
+            c.normalize();
+       
+            fluid.addTemporalForce(m, d, ofFloatColor(0.5,0.1,0.0),3.0f);
             
         }
       //  contourFinder.draw();
+        GlitchFBO.begin();
+        fluid.draw();
+        GlitchFBO.end();
+        postGlitch.setFx(OFXPOSTGLITCH_CONVERGENCE, pressedKey);
+        postGlitch.generateFx();
         
-//        ofPixels pixels;
-//        irTexture.readToPixels(pixels);
-//        //unsigned char *data = pixels.getData();
-//        float *data = kinect.getIrPixelsRef().getData();
-//
-//        int w = kinect.getIrPixelsRef().getWidth();
-//        int h = kinect.getIrPixelsRef().getHeight();
-//
-//
-//
-//        for(int y = 0; y < h; y+=8){
-//            for(int x = 0; x < w; x+=8){
-//
-//
-//                int r = pixels[y * 3 * w + x * 3];  //それぞれのピクセルのr, g, bを抽出
-//                int g = pixels[y * 3 * w + x * 3 + 1];
-//                int b = pixels[y * 3 * w + x * 3 + 2];
-//
-//                float value = r / 65535.0;
-//
-//                ofSetColor(r, r, r, 255);   //透過度50%で描画
-//                ofCircle(20 + x, 20 + y, 5);   //円を描く
-//            }
-//        }
         
-//        irShader.begin();
-//        irTexture.draw(0, 0, ofGetWidth(), ofGetHeight());
-//        irShader.end();
-        
-        //img.draw(0,0);
-        //
-//        for(int i = 0; i < contourFinder.size() ; i++){
-//            ofDrawCircle(ofxCv::toOf(contourFinder.getCenter(i)),10);
-//        }
-//        contourFinder.draw();
     }
+    GlitchFBO.draw(0,0);
     
     ofDrawBitmapStringHighlight("fps: " + ofToString(ofGetFrameRate()), ofGetWidth() - 120, 20);
     mainOutputSyphonServer.publishScreen();
     gui.draw();
-    
-     fluidSimulation.draw(0,0,1280,720);
-    
+
 }
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
+    if(key == '1'){
+        pressedKey = !pressedKey;
+    }
     
 }
 

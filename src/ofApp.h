@@ -7,9 +7,12 @@
 #include "ofxOpenCv.h"
 #include "ofxSyphon.h"
 #include "ofxFlowTools.h"
+#include "ofxFluid.h"
+#include "ofxPostGlitch.h"
 
 
 #define STRINGIFY(x) #x
+
 
 static string irFragmentShader =
 STRINGIFY(
@@ -56,11 +59,16 @@ class ofApp : public ofBaseApp{
     int width;
     int height;
     
-    //FOR FIRE
+    //FOR FlowTools
     ftFluidSimulation fluidSimulation;
     ftDrawMouseForces mouseForces;
     float deltaTime;
     float lastTime;
+    
+    //FOR FIRE
+    ofxFluid fluid;
+    ofVec2f oldM;
+    bool    bPaint, bObstacle, bBounding, bClear;
 
     
     
@@ -72,6 +80,12 @@ class ofApp : public ofBaseApp{
     ofParameter<int> g;
     ofParameter<int> b;
     ofColor targetColor;
+    
+    //FOR POSTGLITCH
+    ofxPostGlitch postGlitch;
+    ofFbo GlitchFBO;
+    bool pressedKey = false;
+
 
     
     //FOR SYPHON
