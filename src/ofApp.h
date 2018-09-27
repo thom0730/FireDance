@@ -80,15 +80,17 @@ class ofApp : public ofBaseApp{
     ofParameter<int> r;
     ofParameter<int> g;
     ofParameter<int> b;
+    ofParameter<bool> IRCamera;
+    ofParameter<bool> circle;
     ofColor targetColor;
     
     //FOR POSTGLITCH
     ofxPostGlitch postGlitch;
     ofFbo GlitchFBO;
-    bool pressedKey = false;
-
-
+    bool release = true;
     
+
+
     //FOR SYPHON
     ofxSyphonServer mainOutputSyphonServer;
     ofxSyphonServer individualTextureSyphonServer;

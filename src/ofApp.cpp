@@ -38,6 +38,8 @@ void ofApp::setup(){
     gui.add(r.set("r",255, 0, 255));
     gui.add(g.set("g",255, 0, 255));
     gui.add(b.set("b",255, 0, 255));
+    gui.add(IRCamera.set("IRCamera", true));
+    gui.add(circle.set("Circle for Debug", true));
     
     width = ofGetWidth();
     height = ofGetHeight();
@@ -95,7 +97,10 @@ void ofApp::draw(){
         frameBuffer.readToPixels(irPixels);
         myCvImage.setFromPixels(irPixels);
         //IRカメラの描画
-        myCvImage.draw(0.0, 0.0, ofGetWidth(), ofGetHeight());
+        if(IRCamera){
+            myCvImage.draw(0.0, 0.0, ofGetWidth(), ofGetHeight());
+        }
+        
         
         //openCV
         contourFinder.setTargetColor(targetColor, trackHs ? TRACK_COLOR_HS : TRACK_COLOR_RGB);
@@ -110,8 +115,10 @@ void ofApp::draw(){
         if(contourFinder.size() < oldMsize){
             for(int i = 0; i < contourFinder.size() ; i++){
                 //デバッグ用の円
-                ofDrawCircle(ofxCv::toOf(contourFinder.getCenter(i)),50);
-                //cout << contourFinder.getCenter(i)<<endl;
+                if(circle){
+                    ofDrawCircle(ofxCv::toOf(contourFinder.getCenter(i)),20);
+                    //cout << contourFinder.getCenter(i)<<endl;
+                }
                 int x = contourFinder.getCenter(i).x;
                 int y = contourFinder.getCenter(i).y;
                 //FOR FIRE
@@ -121,13 +128,15 @@ void ofApp::draw(){
                 ofPoint c = ofPoint(640*0.5, 480*0.5) - m;
                 c.normalize();
                 
-                fluid.addTemporalForce(m, d, ofFloatColor(0.5,0.1,0.0),5.0f);
+                fluid.addTemporalForce(m, d, ofFloatColor(0.5,0.1,0.0),4.0f);
             }
         }else{
             for(int i = 0; i < oldMsize ; i++){
                 //デバッグ用の円
-                ofDrawCircle(ofxCv::toOf(contourFinder.getCenter(i)),50);
-                //cout << contourFinder.getCenter(i)<<endl;
+                if(circle){
+                    ofDrawCircle(ofxCv::toOf(contourFinder.getCenter(i)),20);
+                    //cout << contourFinder.getCenter(i)<<endl;
+                }
                 int x = contourFinder.getCenter(i).x;
                 int y = contourFinder.getCenter(i).y;
                 //FOR FIRE
@@ -137,20 +146,18 @@ void ofApp::draw(){
                 ofPoint c = ofPoint(640*0.5, 480*0.5) - m;
                 c.normalize();
                 
-                fluid.addTemporalForce(m, d, ofFloatColor(0.5,0.1,0.0),5.0f);
+                fluid.addTemporalForce(m, d, ofFloatColor(0.5,0.1,0.0),4.0f);
             }
             
         }
-        
         
       //  contourFinder.draw();
         GlitchFBO.begin();
         fluid.draw();
         GlitchFBO.end();
-        postGlitch.setFx(OFXPOSTGLITCH_CONVERGENCE, pressedKey);
-        postGlitch.generateFx();
-        
-        
+        if(release){
+            postGlitch.generateFx();
+        }
     }
     GlitchFBO.draw(0,0);
     
@@ -162,14 +169,74 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
-    if(key == '1'){
-        pressedKey = !pressedKey;
-    }
+
+    
+    if (key == '1') postGlitch.setFx(OFXPOSTGLITCH_CONVERGENCE    , true);
+    if (key == '2') postGlitch.setFx(OFXPOSTGLITCH_GLOW            , true);
+    if (key == '3') postGlitch.setFx(OFXPOSTGLITCH_SHAKER            , true);
+    if (key == '4') postGlitch.setFx(OFXPOSTGLITCH_CUTSLIDER        , true);
+    if (key == '5') postGlitch.setFx(OFXPOSTGLITCH_TWIST            , true);
+    if (key == '6') postGlitch.setFx(OFXPOSTGLITCH_OUTLINE        , true);
+    if (key == '7') postGlitch.setFx(OFXPOSTGLITCH_NOISE            , true);
+    if (key == '8') postGlitch.setFx(OFXPOSTGLITCH_SLITSCAN        , true);
+    if (key == '9') postGlitch.setFx(OFXPOSTGLITCH_SWELL            , true);
+    if (key == '0') postGlitch.setFx(OFXPOSTGLITCH_INVERT            , true);
+    
+    if (key == 'q') postGlitch.setFx(OFXPOSTGLITCH_CR_HIGHCONTRAST, true);
+    if (key == 'w') postGlitch.setFx(OFXPOSTGLITCH_CR_BLUERAISE    , true);
+    if (key == 'e') postGlitch.setFx(OFXPOSTGLITCH_CR_REDRAISE    , true);
+    if (key == 'r') postGlitch.setFx(OFXPOSTGLITCH_CR_GREENRAISE    , true);
+    if (key == 't') postGlitch.setFx(OFXPOSTGLITCH_CR_BLUEINVERT    , true);
+    if (key == 'y') postGlitch.setFx(OFXPOSTGLITCH_CR_REDINVERT    , true);
+    if (key == 'u') postGlitch.setFx(OFXPOSTGLITCH_CR_GREENINVERT    , true);
     
 }
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){
+    if (key == '1') postGlitch.setFx(OFXPOSTGLITCH_CONVERGENCE    , false);
+    if (key == '2') postGlitch.setFx(OFXPOSTGLITCH_GLOW            , false);
+    if (key == '3') postGlitch.setFx(OFXPOSTGLITCH_SHAKER            , false);
+    if (key == '4') postGlitch.setFx(OFXPOSTGLITCH_CUTSLIDER        , false);
+    if (key == '5') postGlitch.setFx(OFXPOSTGLITCH_TWIST            , false);
+    if (key == '6') postGlitch.setFx(OFXPOSTGLITCH_OUTLINE        , false);
+    if (key == '7') postGlitch.setFx(OFXPOSTGLITCH_NOISE            , false);
+    if (key == '8') postGlitch.setFx(OFXPOSTGLITCH_SLITSCAN        , false);
+    if (key == '9') postGlitch.setFx(OFXPOSTGLITCH_SWELL            , false);
+    if (key == '0') postGlitch.setFx(OFXPOSTGLITCH_INVERT            , false);
+    
+    if (key == 'q') postGlitch.setFx(OFXPOSTGLITCH_CR_HIGHCONTRAST, false);
+    if (key == 'w') postGlitch.setFx(OFXPOSTGLITCH_CR_BLUERAISE    , false);
+    if (key == 'e') postGlitch.setFx(OFXPOSTGLITCH_CR_REDRAISE    , false);
+    if (key == 'r') postGlitch.setFx(OFXPOSTGLITCH_CR_GREENRAISE    , false);
+    if (key == 't') postGlitch.setFx(OFXPOSTGLITCH_CR_BLUEINVERT    , false);
+    if (key == 'y') postGlitch.setFx(OFXPOSTGLITCH_CR_REDINVERT    , false);
+    if (key == 'u') postGlitch.setFx(OFXPOSTGLITCH_CR_GREENINVERT    , false);
+    
+    //ALL reset
+    if (key == 'z'){
+        postGlitch.setFx(OFXPOSTGLITCH_CONVERGENCE    , false);
+        postGlitch.setFx(OFXPOSTGLITCH_GLOW            , false);
+        postGlitch.setFx(OFXPOSTGLITCH_SHAKER            , false);
+        postGlitch.setFx(OFXPOSTGLITCH_CUTSLIDER        , false);
+        postGlitch.setFx(OFXPOSTGLITCH_TWIST            , false);
+        postGlitch.setFx(OFXPOSTGLITCH_OUTLINE        , false);
+        postGlitch.setFx(OFXPOSTGLITCH_NOISE            , false);
+        postGlitch.setFx(OFXPOSTGLITCH_SLITSCAN        , false);
+        postGlitch.setFx(OFXPOSTGLITCH_SWELL            , false);
+        postGlitch.setFx(OFXPOSTGLITCH_INVERT            , false);
+        
+        postGlitch.setFx(OFXPOSTGLITCH_CR_HIGHCONTRAST, false);
+        postGlitch.setFx(OFXPOSTGLITCH_CR_BLUERAISE    , false);
+        postGlitch.setFx(OFXPOSTGLITCH_CR_REDRAISE    , false);
+        postGlitch.setFx(OFXPOSTGLITCH_CR_GREENRAISE    , false);
+        postGlitch.setFx(OFXPOSTGLITCH_CR_BLUEINVERT    , false);
+        postGlitch.setFx(OFXPOSTGLITCH_CR_REDINVERT    , false);
+        postGlitch.setFx(OFXPOSTGLITCH_CR_GREENINVERT    , false);
+        
+        release = false;
+        
+    }
     
 }
 
