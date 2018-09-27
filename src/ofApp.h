@@ -82,6 +82,7 @@ class ofApp : public ofBaseApp{
     ofParameter<int> b;
     ofParameter<bool> IRCamera;
     ofParameter<bool> circle;
+    ofParameter<bool> flg;
     ofColor targetColor;
     
     //FOR POSTGLITCH

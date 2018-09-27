@@ -39,7 +39,8 @@ void ofApp::setup(){
     gui.add(g.set("g",255, 0, 255));
     gui.add(b.set("b",255, 0, 255));
     gui.add(IRCamera.set("IRCamera", true));
-    gui.add(circle.set("Circle for Debug", true));
+    gui.add(circle.set("Circle", true));
+    gui.add(flg.set("FIRE", false));
     
     width = ofGetWidth();
     height = ofGetHeight();
@@ -159,7 +160,10 @@ void ofApp::draw(){
             postGlitch.generateFx();
         }
     }
-    GlitchFBO.draw(0,0);
+    if(flg){
+        GlitchFBO.draw(0,0);
+    }
+    
     
     ofDrawBitmapStringHighlight("fps: " + ofToString(ofGetFrameRate()), ofGetWidth() - 120, 20);
     mainOutputSyphonServer.publishScreen();
@@ -189,6 +193,29 @@ void ofApp::keyPressed(int key){
     if (key == 't') postGlitch.setFx(OFXPOSTGLITCH_CR_BLUEINVERT    , true);
     if (key == 'y') postGlitch.setFx(OFXPOSTGLITCH_CR_REDINVERT    , true);
     if (key == 'u') postGlitch.setFx(OFXPOSTGLITCH_CR_GREENINVERT    , true);
+    
+    if(key == 'a'){
+        if(IRCamera){
+            IRCamera = false;
+        }else{
+            IRCamera = true;
+        }
+    }
+    if(key == 's'){
+        if(circle){
+            circle = false;
+        }else{
+            circle = true;
+        }
+    }
+    if(key == 'd'){
+        if(flg){
+            flg = false;
+        }else{
+            flg = true;
+        }
+    }
+
     
 }
 
@@ -234,8 +261,7 @@ void ofApp::keyReleased(int key){
         postGlitch.setFx(OFXPOSTGLITCH_CR_REDINVERT    , false);
         postGlitch.setFx(OFXPOSTGLITCH_CR_GREENINVERT    , false);
         
-        release = false;
-        
+        GlitchFBO.clear();
     }
     
 }
