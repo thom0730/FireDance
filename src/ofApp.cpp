@@ -48,7 +48,7 @@ void ofApp::setup(){
     
     //FOR FIRE
 
-    fluid.allocate(width, height, 0.2);
+    fluid.allocate(width, height, 0.5);
 
     fluid.dissipation = 0.99;
     fluid.velocityDissipation = 0.99;
@@ -103,6 +103,7 @@ void ofApp::draw(){
         cv::Mat imgMat = ofxCv::toCv(myCvImage);
         contourFinder.findContours(imgMat); //ビデオカメラから輪郭を検出
         
+        
         for(int i = 0; i < contourFinder.size() ; i++){
             //デバッグ用の円
             //ofDrawCircle(ofxCv::toOf(contourFinder.getCenter(i)),50);
@@ -120,6 +121,7 @@ void ofApp::draw(){
             
         }
       //  contourFinder.draw();
+        //Glitsh Start
         GlitchFBO.begin();
         fluid.draw();
         GlitchFBO.end();
