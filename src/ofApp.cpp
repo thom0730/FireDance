@@ -95,7 +95,7 @@ void ofApp::draw(){
         frameBuffer.readToPixels(irPixels);
         myCvImage.setFromPixels(irPixels);
         //IRカメラの描画
-        //myCvImage.draw(0.0, 0.0, ofGetWidth(), ofGetHeight());
+        myCvImage.draw(0.0, 0.0, ofGetWidth(), ofGetHeight());
         
         //openCV
         contourFinder.setTargetColor(targetColor, trackHs ? TRACK_COLOR_HS : TRACK_COLOR_RGB);
@@ -103,10 +103,9 @@ void ofApp::draw(){
         cv::Mat imgMat = ofxCv::toCv(myCvImage);
         contourFinder.findContours(imgMat); //ビデオカメラから輪郭を検出
         
-        
         for(int i = 0; i < contourFinder.size() ; i++){
             //デバッグ用の円
-            //ofDrawCircle(ofxCv::toOf(contourFinder.getCenter(i)),50);
+            ofDrawCircle(ofxCv::toOf(contourFinder.getCenter(i)),50);
             //cout << contourFinder.getCenter(i)<<endl;
             int x = contourFinder.getCenter(i).x;
             int y = contourFinder.getCenter(i).y;
@@ -117,11 +116,10 @@ void ofApp::draw(){
             ofPoint c = ofPoint(640*0.5, 480*0.5) - m;
             c.normalize();
        
-            fluid.addTemporalForce(m, d, ofFloatColor(0.5,0.1,0.0),3.0f);
+            fluid.addTemporalForce(m, d, ofFloatColor(0.5,0.1,0.0),5.0f);
             
         }
       //  contourFinder.draw();
-        //Glitsh Start
         GlitchFBO.begin();
         fluid.draw();
         GlitchFBO.end();

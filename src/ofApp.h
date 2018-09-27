@@ -12,7 +12,7 @@
 
 
 #define STRINGIFY(x) #x
-#define FIRENUM 8
+
 
 
 static string irFragmentShader =
