@@ -103,22 +103,46 @@ void ofApp::draw(){
         cv::Mat imgMat = ofxCv::toCv(myCvImage);
         contourFinder.findContours(imgMat); //ビデオカメラから輪郭を検出
         
-        for(int i = 0; i < contourFinder.size() ; i++){
-            //デバッグ用の円
-            ofDrawCircle(ofxCv::toOf(contourFinder.getCenter(i)),50);
-            //cout << contourFinder.getCenter(i)<<endl;
-            int x = contourFinder.getCenter(i).x;
-            int y = contourFinder.getCenter(i).y;
-            //FOR FIRE
-            ofPoint m = ofPoint(x,y);
-            ofPoint d = (m - oldM)*10.0;
-            oldM = m;
-            ofPoint c = ofPoint(640*0.5, 480*0.5) - m;
-            c.normalize();
-       
-            fluid.addTemporalForce(m, d, ofFloatColor(0.5,0.1,0.0),5.0f);
+        //用意したoldMの要素数
+        int oldMsize = sizeof(oldM)/sizeof(oldM[0]);
+        
+        //着火
+        if(contourFinder.size() < oldMsize){
+            for(int i = 0; i < contourFinder.size() ; i++){
+                //デバッグ用の円
+                ofDrawCircle(ofxCv::toOf(contourFinder.getCenter(i)),50);
+                //cout << contourFinder.getCenter(i)<<endl;
+                int x = contourFinder.getCenter(i).x;
+                int y = contourFinder.getCenter(i).y;
+                //FOR FIRE
+                ofPoint m = ofPoint(x,y);
+                ofPoint d = (m - oldM[i])*10.0;
+                oldM[i] = m;
+                ofPoint c = ofPoint(640*0.5, 480*0.5) - m;
+                c.normalize();
+                
+                fluid.addTemporalForce(m, d, ofFloatColor(0.5,0.1,0.0),5.0f);
+            }
+        }else{
+            for(int i = 0; i < oldMsize ; i++){
+                //デバッグ用の円
+                ofDrawCircle(ofxCv::toOf(contourFinder.getCenter(i)),50);
+                //cout << contourFinder.getCenter(i)<<endl;
+                int x = contourFinder.getCenter(i).x;
+                int y = contourFinder.getCenter(i).y;
+                //FOR FIRE
+                ofPoint m = ofPoint(x,y);
+                ofPoint d = (m - oldM[i])*10.0;
+                oldM[i] = m;
+                ofPoint c = ofPoint(640*0.5, 480*0.5) - m;
+                c.normalize();
+                
+                fluid.addTemporalForce(m, d, ofFloatColor(0.5,0.1,0.0),5.0f);
+            }
             
         }
+        
+        
       //  contourFinder.draw();
         GlitchFBO.begin();
         fluid.draw();

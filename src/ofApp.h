@@ -68,7 +68,7 @@ class ofApp : public ofBaseApp{
     
     //FOR FIRE
     ofxFluid fluid;
-    ofVec2f oldM;
+    ofVec2f oldM[6];
     bool    bPaint, bObstacle, bBounding, bClear;
 
     
