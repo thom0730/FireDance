@@ -6,7 +6,6 @@
 #include "ofxCv.h"
 #include "ofxOpenCv.h"
 #include "ofxSyphon.h"
-#include "ofxFlowTools.h"
 #include "ofxFluid.h"
 #include "ofxPostGlitch.h"
 
@@ -25,8 +24,6 @@ STRINGIFY(
               gl_FragColor = vec4(vec3(value), 1.0);
           }
 );
-using namespace flowTools;
-
 class ofApp : public ofBaseApp{
 
 	public:
@@ -61,14 +58,12 @@ class ofApp : public ofBaseApp{
     int height;
     
     //FOR FlowTools
-    ftFluidSimulation fluidSimulation;
-    ftDrawMouseForces mouseForces;
     float deltaTime;
     float lastTime;
     
     //FOR FIRE
     ofxFluid fluid;
-    ofVec2f oldM[6];
+    ofVec2f oldM[4];
     bool    bPaint, bObstacle, bBounding, bClear;
 
     
@@ -83,6 +78,9 @@ class ofApp : public ofBaseApp{
     ofParameter<bool> IRCamera;
     ofParameter<bool> circle;
     ofParameter<bool> flg;
+    ofParameter<float> power;
+    ofParameter<int> min;
+    ofParameter<int> max;
     ofColor targetColor;
     
     //FOR POSTGLITCH

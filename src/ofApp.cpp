@@ -27,13 +27,10 @@ void ofApp::setup(){
     mClient.setApplicationName("Simple Server");
     mClient.setServerName("");
     
-    //FOR CV
-    contourFinder.setMinAreaRadius(10);
-    contourFinder.setMaxAreaRadius(150);
     
     //FOR GUI
     gui.setup();
-    gui.add(threshold.set("Threshold", 40, 0, 255));
+    gui.add(threshold.set("Threshold", 200, 0, 255));
     gui.add(trackHs.set("Track Hue/Saturation", false));
     gui.add(r.set("r",255, 0, 255));
     gui.add(g.set("g",255, 0, 255));
@@ -41,6 +38,9 @@ void ofApp::setup(){
     gui.add(IRCamera.set("IRCamera", true));
     gui.add(circle.set("Circle", true));
     gui.add(flg.set("FIRE", false));
+    gui.add(power.set("POWER",5.0, 0, 10.0));
+    gui.add(min.set("MIN",10, 0, 15));
+    gui.add(max.set("MAX",150, 100, 200));
     
     width = ofGetWidth();
     height = ofGetHeight();
@@ -51,7 +51,7 @@ void ofApp::setup(){
     
     //FOR FIRE
 
-    fluid.allocate(width, height, 0.5);
+    fluid.allocate(width, height, 0.7);
 
     fluid.dissipation = 0.99;
     fluid.velocityDissipation = 0.99;
@@ -79,6 +79,10 @@ void ofApp::update(){
         irTexture.loadData(kinect.getIrPixelsRef());
     }
     
+    //FOR CV
+    contourFinder.setMinAreaRadius(min);
+    contourFinder.setMaxAreaRadius(max);
+    
     //FOR FIRE
     fluid.update();
 
@@ -88,6 +92,8 @@ void ofApp::update(){
 void ofApp::draw(){
 
     ofClear(0);
+    ofSetColor(255);
+    ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
 
     if(irTexture.isAllocated()){
         frameBuffer.begin();
@@ -117,7 +123,8 @@ void ofApp::draw(){
             for(int i = 0; i < contourFinder.size() ; i++){
                 //デバッグ用の円
                 if(circle){
-                    ofDrawCircle(ofxCv::toOf(contourFinder.getCenter(i)),20);
+                    ofSetColor(255,0,0);
+                    ofDrawCircle(ofxCv::toOf(contourFinder.getCenter(i)),15);
                     //cout << contourFinder.getCenter(i)<<endl;
                 }
                 int x = contourFinder.getCenter(i).x;
@@ -129,13 +136,14 @@ void ofApp::draw(){
                 ofPoint c = ofPoint(640*0.5, 480*0.5) - m;
                 c.normalize();
                 
-                fluid.addTemporalForce(m, d, ofFloatColor(0.5,0.1,0.0),4.0f);
+                fluid.addTemporalForce(m, d, ofFloatColor(0.7,0.2,0.0),power);
             }
         }else{
             for(int i = 0; i < oldMsize ; i++){
                 //デバッグ用の円
                 if(circle){
-                    ofDrawCircle(ofxCv::toOf(contourFinder.getCenter(i)),20);
+                    ofSetColor(255,0,0);
+                    ofDrawCircle(ofxCv::toOf(contourFinder.getCenter(i)),15);
                     //cout << contourFinder.getCenter(i)<<endl;
                 }
                 int x = contourFinder.getCenter(i).x;
@@ -147,22 +155,25 @@ void ofApp::draw(){
                 ofPoint c = ofPoint(640*0.5, 480*0.5) - m;
                 c.normalize();
                 
-                fluid.addTemporalForce(m, d, ofFloatColor(0.5,0.1,0.0),4.0f);
+                fluid.addTemporalForce(m, d, ofFloatColor(0.7,0.2,0.0),power);
             }
             
         }
         
       //  contourFinder.draw();
         GlitchFBO.begin();
+        
         fluid.draw();
         GlitchFBO.end();
         if(release){
             postGlitch.generateFx();
         }
+        
+        if(flg){
+            GlitchFBO.draw(0,0);
+        }
     }
-    if(flg){
-        GlitchFBO.draw(0,0);
-    }
+    
     
     
     ofDrawBitmapStringHighlight("fps: " + ofToString(ofGetFrameRate()), ofGetWidth() - 120, 20);
@@ -278,8 +289,8 @@ void ofApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void ofApp::mousePressed(int x, int y, int button){
-    targetColor = myCvImage.getPixels().getColor(x,y);
-    cout <<targetColor<< endl;
+    //targetColor = myCvImage.getPixels().getColor(x,y);
+   // cout <<targetColor<< endl;
     
 }
 
